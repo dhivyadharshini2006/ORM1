@@ -1,3 +1,3 @@
 from django.contrib import admin
-from.models import Patient,PatientAdmin
-admin.site.register(Patient,PatientAdmin)
+from.models import Movie,MovieAdmin
+admin.site.register(Movie,MovieAdmin)

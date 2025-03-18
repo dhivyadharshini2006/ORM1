@@ -20,26 +20,28 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+# Models.py
 ```
-models.py
 from django.db import models
 from django.contrib import admin
-class Patient(models.Model):
-    pat_id=models.IntegerField(primary_key=True)
-    pat_name=models.CharField(max_length=30)
-    pat_num=models.IntegerField(primary_key=True)
-    doc_name=models.CharField(max_length=30)
+class Movie(models.Model):
+    title = models.CharField(max_length=255, help_text="Movie Title")
+    director = models.CharField(max_length=100, help_text="Director Name")
+    release_date = models.DateField(help_text="Release Date")
+    genre = models.CharField(max_length=50, help_text="Movie Genre")
+    rating = models.DecimalField(max_digits=3, decimal_places=1, help_text="Movie Rating (e.g., 8.5)")
+    duration = models.IntegerField(help_text="Duration in Minutes")
 
-class PatientAdmin(admin.ModelAdmin):
-    list_display=('pat_id','pat_name','pat_num','doc_name')
-admin.py
-
-from django.contrib import admin
-from.models import Patient,PatientAdmin
-admin.site.register(Patient,PatientAdmin)
+class MovieAdmin(admin.ModelAdmin):
+    list_display = ('title', 'director', 'release_date', 'genre', 'rating', 'duration')
+```
+# admin.py
+```
+from.models import Movie,MovieAdmin
+admin.site.register(Movie,MovieAdmin)
 ```
 ## OUTPUT
-![alt text](image.png)
+![alt text](image-1.png)
 
 ## RESULT
 Thus the program for creating movies database using ORM hass been executed successfully
